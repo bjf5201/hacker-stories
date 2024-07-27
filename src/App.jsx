@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Nav from './components/Nav/Nav.jsx';
-import Search from './components/Search/Search.jsx';
+import Nav from './components/Nav.jsx';
+import Search from './components/Search.jsx';
 import './App.css';
 
 function App() {
