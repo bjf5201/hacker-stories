@@ -8,9 +8,17 @@ import './App.css';
 
 const App = () => {
 
+  /* passed down to Search component */
+  const [searchTerm, setSearchTerm] = React.useState('');
+
   const handleSearch = (event) => {
-    console.log(event.target.value);
+    setSearchTerm(event.target.value);
   };
+
+  /* filtered data for the BlogList component */
+  const filteredBlog = blogData.filter((item) => {
+    return item.title.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   const welcome = {
     title: 'Bethany Joy',
@@ -19,11 +27,14 @@ const App = () => {
 
   return (
     <>
-      <NavList list={navData}/>
+      <NavList data={navData}/>
+
       <h1>{welcome.title}</h1>
       <p>{welcome.message}</p>
-      <Search onSearch={handleSearch}/>
-      <BlogList data={blogData}/>
+      
+      <Search value={searchTerm} onSearch={handleSearch}/>
+      
+      <BlogList data={filteredBlog}/>
     </>
   );
 }
