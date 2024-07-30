@@ -3,7 +3,6 @@ import NavList from './components/NavList.jsx';
 import Search from './components/Search.jsx';
 import BlogList from './components/Blog/BlogList.jsx';
 import blogData from './data/blogData.js';
-import navData from './data/navData.js';
 import './App.css';
 
 const App = () => {
@@ -27,7 +26,7 @@ const App = () => {
 
   return (
     <>
-      <NavList data={navData}/>
+      <NavList />
 
       <h1>{welcome.title}</h1>
       <p>{welcome.message}</p>
