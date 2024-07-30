@@ -1,7 +1,7 @@
-const NavItem = (props) => {
+const NavItem = ({ item }) => {
   return (
     <li>
-        <a href={props.item.url}>{props.item.title}</a>
+        <a href={item.url}>{item.title}</a>
     </li>
   );
 }

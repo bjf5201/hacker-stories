@@ -1,9 +1,9 @@
 import NavItem from "./NavItem";
 
-const NavList = (props) => {
+const NavList = ({ data }) => {
   return (
     <ul>
-        {props.data.map((item) => ( <NavItem key={item.objectID} item={item} />
+        {data.map((item) => ( <NavItem key={item.objectID} item={item} />
         ))}
     </ul>
   )
