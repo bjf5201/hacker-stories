@@ -32,7 +32,7 @@ const App = () => {
       <h1>{welcome.title}</h1>
       <p>{welcome.message}</p>
       
-      <Search value={searchTerm} onSearch={handleSearch}/>
+      <Search search={searchTerm} onSearch={handleSearch}/>
       
       <BlogList data={filteredBlog}/>
     </>
