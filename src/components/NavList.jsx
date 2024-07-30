@@ -1,9 +1,10 @@
-import NavItem from "./NavItem";
+import NavItem from './NavItem';
+import navList from '../data/navData';
 
-const NavList = ({ data }) => {
+const NavList = () => {
   return (
     <ul>
-        {data.map((item) => ( <NavItem key={item.objectID} item={item} />
+        {navList.map((item) => ( <NavItem key={item.objectID} item={item} />
         ))}
     </ul>
   )

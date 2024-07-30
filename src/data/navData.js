@@ -1,4 +1,4 @@
-const navData = [
+const navList = [
     {
       title: 'Home',
       url: '/',
@@ -21,4 +21,4 @@ const navData = [
     },
   ];
 
-export default navData;
+export default navList;

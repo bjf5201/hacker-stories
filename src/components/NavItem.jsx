@@ -1,4 +1,8 @@
-const NavItem = ({ item }) => {
+const NavItem = ({
+  item: {
+    objectID,
+    ...item},
+  }) => {
   return (
     <li>
         <a href={item.url}>{item.title}</a>
