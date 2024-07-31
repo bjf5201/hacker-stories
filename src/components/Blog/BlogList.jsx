@@ -1,10 +1,10 @@
 import BlogItem from "./BlogItem";
 
-const BlogList = (props) => {
+const BlogList = ({ data }) => {
   return (
     <ul>
-        {props.data.map((item) => (
-            <BlogItem key={item.objectID} item={item} />
+        {data.map(({objectID, ...item}) => (
+            <BlogItem key={objectID} {...item} />
         ))}
     </ul>
   )

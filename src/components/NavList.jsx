@@ -4,7 +4,11 @@ import navList from '../data/navData';
 const NavList = () => {
   return (
     <ul>
-        {navList.map((item) => ( <NavItem key={item.objectID} item={item} />
+      {navList.map((item) => (
+        <NavItem
+          key={item.objectID}
+          url={item.url}
+          title={item.title} />
         ))}
     </ul>
   )

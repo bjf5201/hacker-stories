@@ -1,10 +1,10 @@
-const BlogItem = (props) => {
+const BlogItem = ({ title, author, content, num_comments }) => {
   return (
     <li>
-        <h2>{props.item.title}</h2>
-        <p>{props.item.author}</p>
-        <p>{props.item.content}</p>
-        <p>{props.item.num_comments}</p>
+        <h2>{title}</h2>
+        <p>{author}</p>
+        <p>{content}</p>
+        <p>{num_comments}</p>
     </li>
   );
 }
