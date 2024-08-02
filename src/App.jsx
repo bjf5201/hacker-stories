@@ -7,21 +7,26 @@ import './App.css';
 
 const App = () => {
 
+  
+  const useStorageState = (key, initialState) => {
+    const [value, setValue] = React.useState(localStorage.getItem(key) || initialState);
+    React.useEffect(() => {
+      localStorage.setItem(key, value);
+    }, [value, key]);
+
+    return [value, setValue];
+  };
+
   /* passed down to Search component */
-  const [searchTerm, setSearchTerm] = React.useState(localStorage.getItem('search') || '');
-
-  React.useEffect(() => {
-    localStorage.setItem('search', searchTerm);
-  }, [searchTerm]);
-
+  const [searchTerm, setSearchTerm] = useStorageState('search', '');
   
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
   /* filtered data for the BlogList component */
-  const filteredBlog = blogData.filter((item) => {
-    return item.title.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredBlog = blogData.filter((blog) => {
+    return blog.title.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
   const welcome = {
