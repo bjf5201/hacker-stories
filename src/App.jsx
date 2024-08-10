@@ -1,6 +1,6 @@
 import * as React from 'react';
 import NavList from './components/NavList.jsx';
-import Search from './components/Search.jsx';
+import InputWithLabel from './components/InputWithLabel.jsx';
 import BlogList from './components/Blog/BlogList.jsx';
 import blogData from './data/blogData.js';
 import './App.css';
@@ -41,7 +41,7 @@ const App = () => {
       <h1>{welcome.title}</h1>
       <p>{welcome.message}</p>
       
-      <Search search={searchTerm} onSearch={handleSearch}/>
+      <InputWithLabel id="search" label="Find what you're looking for: " name="search" value={searchTerm} onInputChange={handleSearch}/>
       
       <BlogList data={filteredBlog}/>
     </>
