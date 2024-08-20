@@ -6,7 +6,6 @@ import blogData from './data/blogData.js';
 import './App.css';
 
 const App = () => {
-
   
   const useStorageState = (key, initialState) => {
     const [value, setValue] = React.useState(localStorage.getItem(key) || initialState);
@@ -41,11 +40,12 @@ const App = () => {
       <h1>{welcome.title}</h1>
       <p>{welcome.message}</p>
       
-      <InputWithLabel id="search" label="Find what you're looking for: " name="search" value={searchTerm} onInputChange={handleSearch}/>
+      <InputWithLabel id="search" label="Find what you're looking for: " name="search" value={searchTerm} onInputChange={handleSearch} />
       
-      <BlogList data={filteredBlog}/>
+      <BlogList data={filteredBlog} />
     </>
   );
 }
+
 
 export default App;
