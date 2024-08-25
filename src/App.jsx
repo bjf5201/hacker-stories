@@ -40,9 +40,11 @@ const App = () => {
       <h1>{welcome.title}</h1>
       <p>{welcome.message}</p>
       
-      <InputWithLabel id="search" label="Find what you're looking for: " name="search" value={searchTerm} onInputChange={handleSearch} />
-      
+      <InputWithLabel id="search" name="search" value={searchTerm} onInputChange={handleSearch} >
+        <strong>Search: </strong>
+      </InputWithLabel>
       <BlogList data={filteredBlog} />
+
     </>
   );
 }
