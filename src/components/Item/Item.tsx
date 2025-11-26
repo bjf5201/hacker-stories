@@ -1,4 +1,4 @@
-import type { ItemProps } from './Item.types';
+import type { ItemProps } from './Item.types'
 
 export const Item = ({ item, onRemoveItem }: ItemProps) => (
   <li>
@@ -14,4 +14,4 @@ export const Item = ({ item, onRemoveItem }: ItemProps) => (
       </button>
     </span>
   </li>
-);
+)

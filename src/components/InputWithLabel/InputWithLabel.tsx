@@ -1,4 +1,4 @@
-import type { InputWithLabelProps } from './InputWithLabel.types';
+import type { InputWithLabelProps } from './InputWithLabel.types'
 
 export const InputWithLabel = ({
   id,
@@ -11,12 +11,7 @@ export const InputWithLabel = ({
     <>
       <label htmlFor={id}>{label}</label>
       &nbsp;
-      <input
-        id={id}
-        type={type}
-        value={value}
-        onChange={onInputChange}
-      />
+      <input id={id} type={type} value={value} onChange={onInputChange} />
     </>
-  );
-};
+  )
+}

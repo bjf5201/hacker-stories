@@ -1,6 +1,6 @@
-import type { Blog } from '@c/blogs';
+import type { Blog } from '@c/blogs'
 
 export type ListProps = {
-  list: Blog[];
-  onRemoveItem: (item: Blog) => void;
-};
+  list: Blog[]
+  onRemoveItem: (item: Blog) => void
+}

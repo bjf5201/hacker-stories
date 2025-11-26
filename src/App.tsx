@@ -1,56 +1,36 @@
-import * as React from 'react';
-
-import type { Blog } from '@c/blogs';
-import { blogs } from '@c/blogs';
-import { InputWithLabel } from '@c/InputWithLabel';
-import { List } from '@c/List';
-
-const useStorageState = (key: string, initialState: string) => {
-  const [value, setValue] = React.useState(
-    localStorage.getItem(key) || initialState
-  );
-
-  React.useEffect(() => {
-    localStorage.setItem(key, value);
-  }, [value, key]);
-
-  return [value, setValue] as const;
-};
+import type { Blog } from '@c/blogs'
+import { blogs } from '@c/blogs'
+import { List } from '@c/List'
+import { Search } from '@c/Search'
+import { useState } from 'react'
 
 export const App = () => {
   const stories = blogs as Blog[]
 
-  const [searchTerm, setSearchTerm] = useStorageState('searchTerm', '');
-
-  const handleSearch = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setSearchTerm(event.target.value);
-  };
+  const [searchTerm, setSearchTerm] = useState('')
 
   const searchedStories = stories.filter((story) =>
-    story.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+    story.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  )
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value)
+  }
 
   /* TODO: Implement remove item functionality */
   const handleRemoveItem = (item: Blog) => {
-    console.log("Remove item:", item);
-  };
+    console.log('Remove item:', item)
+  }
 
   return (
     <div>
       <h1>My Hacker Stories</h1>
 
-      <InputWithLabel
-        id="search"
-        label="Search"
-        value={searchTerm}
-        onInputChange={handleSearch}
-      />
+      <Search onSearch={handleSearch} searchTerm={searchTerm} />
 
       <hr />
 
       <List list={searchedStories} onRemoveItem={handleRemoveItem} />
     </div>
-  );
-};
+  )
+}
