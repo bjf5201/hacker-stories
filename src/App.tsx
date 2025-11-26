@@ -1,29 +1,26 @@
-import { useState } from 'react';
-
-import type { Blog } from '@c/blogs';
-import { blogs } from '@c/blogs';
-import { List } from '@c/List';
-import { Search } from '@c/Search';
+import type { Blog } from '@c/blogs'
+import { blogs } from '@c/blogs'
+import { List } from '@c/List'
+import { Search } from '@c/Search'
+import { useState } from 'react'
 
 export const App = () => {
-  const stories = blogs as Blog[];
+  const stories = blogs as Blog[]
 
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('')
 
   const searchedStories = stories.filter((story) =>
-    story.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+    story.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  )
 
-  const handleSearch = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setSearchTerm(event.target.value);
-  };
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value)
+  }
 
   /* TODO: Implement remove item functionality */
   const handleRemoveItem = (item: Blog) => {
-    console.log("Remove item:", item);
-  };
+    console.log('Remove item:', item)
+  }
 
   return (
     <div>
@@ -35,5 +32,5 @@ export const App = () => {
 
       <List list={searchedStories} onRemoveItem={handleRemoveItem} />
     </div>
-  );
-};
+  )
+}
